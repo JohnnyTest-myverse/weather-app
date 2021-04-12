@@ -9,6 +9,7 @@ console.log(__filename); // filename path
 console.log(path.join(__dirname,'../public')); // points toward the public directory
 
 const app = express();
+const port = process.env.PORT || 3000 //grabs heroku port number
 
 // DEFINED paths for Express config
 const publicDirectoryPath = path.join(__dirname,'../public');
@@ -111,6 +112,8 @@ app.get('*',(req,res)=> {
     })
 })
 
-app.listen(3000, ()=> {
-    console.log('Server is up on port 3000');
+app.listen(port, ()=> {
+    console.log('Server is up on port' + port);
 });
+
+// 3000 = development port
